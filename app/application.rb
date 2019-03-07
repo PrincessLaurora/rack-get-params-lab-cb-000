@@ -21,10 +21,11 @@ class Application
     if req.path.match(/cart/)
       @@cart.each do |item|
         resp.write "#{item}\n"
-    end
+      end
+    end  
 
     resp.finish
-  end
+  end  
 
   def handle_search(search_term)
     if @@items.include?(search_term)
