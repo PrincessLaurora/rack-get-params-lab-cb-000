@@ -16,7 +16,7 @@ class Application
       resp.write handle_search(search_term)
 
     elsif req.path.match(/cart/)
-        @@cart.each do |item|
+        if @@cart.each do |item|
           resp.write "#{item}\n"
       end
       else
@@ -29,6 +29,7 @@ class Application
 
     resp.finish
   end
+end
 
   def handle_search(search_term)
     if @@items.include?(search_term)
